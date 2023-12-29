@@ -1,0 +1,123 @@
+@use "../breakpoints" as *;
+@use "../colors" as *;
+
+// phone
+section:nth-child(1){
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5rem;
+  padding-inline: $inline-mobile;
+  div:nth-child(1){
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+    mark{
+      span{
+        position: relative;
+        img{
+          object-fit: contain;
+          height: 100%;
+          width: 90%;
+          position: absolute;
+          left: 5%;
+          top: -3rem;
+        }
+      }
+    }
+    p{
+      opacity: 0.7;
+    }
+    button{
+      background-color: $black;
+      color: $white;
+      align-self: self-start;
+    }
+  }
+  div:nth-child(2){
+    img{
+      width: 100%;
+    }
+    img:nth-child(2){
+      display: none;
+    }
+  }
+  div:nth-child(3){
+    text-align: center;
+    h2{
+      display: flex;
+      flex-direction: column;
+      font-weight: 700;
+      span{
+        font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+        opacity: 0.7;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// tablet
+@include responsive($tablet){
+  section:nth-child(1){
+    grid-template-columns: 50fr 15fr 35fr;
+    align-items: center;
+    h1{line-height: 150%}
+    div:nth-child(1){
+      grid-area: 1 / 1 / 2 / 3;
+      z-index: 1;
+      mark span img{
+            top: -5rem;
+        }
+      p{
+        padding-right: 10rem;
+      }
+    }
+    div:nth-child(2){
+    grid-area: 1 / 2 / 2 / 4;
+    img:nth-child(1){
+      display: none;
+    };
+    img:nth-child(2){
+      display: block;
+      height: 45.8rem;
+    }
+    }
+    div:nth-child(3){
+      display: flex;
+      justify-content: center;
+      gap: 20%;
+      grid-column: 1 / span 3;
+    }
+  }
+}
+
+// desktop
+@include responsive($desktop){
+  section:nth-child(1){
+    grid-template-columns: 43fr 21fr 15fr 25fr;
+    padding-inline: $inline-desktop;
+    h1{line-height: 120%}
+    div:nth-child(1){
+        mark span img{
+              top: -7rem;
+        }
+        p{
+          padding-right: 30rem;
+        }
+    }
+    div:nth-child(2){
+      img:nth-child(2){
+        height: 57rem;
+        width: 33.2rem;
+      }
+    }
+    div:nth-child(3){
+      text-align: start;
+      gap: 4rem;
+      flex-direction: column;
+      align-items: start;
+      grid-area: 1 / 4 / 2 / 5;
+    }
+    }
+}

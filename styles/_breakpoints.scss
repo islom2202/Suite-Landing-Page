@@ -1,0 +1,13 @@
+// inlines
+$inline-mobile: 5%;
+$inline-tablet: 5%;
+$inline-desktop: 12%;
+// breakpoints
+$mobile: 375px;
+$tablet: 768px;
+$desktop: 1450px;
+@mixin responsive ($breakpont){
+  @media (min-width: $breakpont) {
+    @content;
+  }
+}

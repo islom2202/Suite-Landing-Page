@@ -1,0 +1,40 @@
+@use "./breakpoints" as *;
+
+*{
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+  outline: none;
+  font-family: 'Epilogue', sans-serif;
+  background-color: transparent;
+}
+
+button{
+  padding: 1.5rem 2.5rem;
+  border-radius: 0.7rem;
+  border: 1px solid;
+  font-weight: 700;
+} 
+
+header,section{
+  margin-bottom: 4rem;
+}
+
+body{
+  max-width: 2000px;
+  margin-inline: auto;
+  position: relative;
+}
+
+
+section{
+  @include responsive($tablet){
+      max-width: 1000px;
+      margin-inline: auto;
+  }
+  @include responsive($desktop){
+      max-width: 100%;
+  }
+}
